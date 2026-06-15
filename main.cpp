@@ -5,6 +5,14 @@
 
 using namespace std;
 
+void checkPassword()
+{
+    string password;
+
+    cout << "Enter Password: ";
+    cin >> password;
+}
+
 int main()
 {
     int choice;
