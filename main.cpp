@@ -7,16 +7,49 @@ using namespace std;
 
 int main()
 {
-    cout << "==================================================\n";
-    cout << "      SMART PASSWORD SECURITY CHECKER\n";
-    cout << "==================================================\n\n";
+    int choice;
 
-    cout << "[1] Check Password\n\n";
-    cout << "[2] Password Security Tips\n\n";
-    cout << "[3] About Program\n\n";
-    cout << "[4] Exit Program\n\n";
+    do
+    {
+        cout << "==================================================\n";
+        cout << "      SMART PASSWORD SECURITY CHECKER\n";
+        cout << "==================================================\n\n";
 
-    cout << "==================================================\n";
-    
+        cout << "[1] Check Password\n\n";
+        cout << "[2] Password Security Tips\n\n";
+        cout << "[3] About Program\n\n";
+        cout << "[4] Exit Program\n\n";
+
+        cout << "==================================================\n";
+        cout << "Enter Choice: ";
+
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                checkPassword();
+                break;
+
+            case 2:
+                showTips();
+                break;
+
+            case 3:
+                showAbout();
+                break;
+
+            case 4:
+                exitProgram();
+                break;
+
+            default:
+                system("cls");
+                cout << "Invalid Choice. Please Try Again.\n\n";
+        }
+
+    }
+    while(choice != 4);
+
     return 0;
 }
