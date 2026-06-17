@@ -7,53 +7,129 @@ using namespace std;
 
 void checkPassword()
 {
-    string password;
+    int option;
 
-    bool hasUpper = false;
-    bool hasLower = false;
-    bool hasDigit = false;
-    bool hasSymbol = false;
-
-    int score = 0;
-
-    cout << "==================================================\n";
-    cout << "            PASSWORD STRENGTH CHECKER\n";
-    cout << "==================================================\n\n";
-
-    cout << "Enter Password: ";
-    cin >> password;
-
-    for(char ch : password)
+    do
     {
-        if(isupper(ch))
-            hasUpper = true;
-        else if(islower(ch))
-            hasLower = true;
-        else if(isdigit(ch))
-            hasDigit = true;
+        system("cls");
+
+        string password;
+
+        bool hasUpper = false;
+        bool hasLower = false;
+        bool hasDigit = false;
+        bool hasSymbol = false;
+
+        int score = 0;
+
+        cout << "==================================================\n";
+        cout << "            PASSWORD STRENGTH CHECKER\n";
+        cout << "==================================================\n\n";
+
+        cout << "Enter Password: ";
+        cin >> password;
+
+        for(char ch : password)
+        {
+            if(isupper(ch))
+                hasUpper = true;
+            else if(islower(ch))
+                hasLower = true;
+            else if(isdigit(ch))
+                hasDigit = true;
+            else
+                hasSymbol = true;
+        }
+
+        if(password.length() >= 8)
+            score += 20;
+
+        if(password.length() >= 12)
+            score += 20;
+
+        if(hasUpper)
+            score += 20;
+
+        if(hasLower)
+            score += 20;
+
+        if(hasDigit)
+            score += 10;
+
+        if(hasSymbol)
+            score += 10;
+
+        cout << "\n==================================================\n";
+        cout << "              PASSWORD ANALYSIS\n";
+        cout << "==================================================\n\n";
+
+        cout << "Length >= 8        : "
+             << (password.length() >= 8 ? "PASS" : "FAIL") << endl;
+
+        cout << "Uppercase Letter   : "
+             << (hasUpper ? "PASS" : "FAIL") << endl;
+
+        cout << "Lowercase Letter   : "
+             << (hasLower ? "PASS" : "FAIL") << endl;
+
+        cout << "Number             : "
+             << (hasDigit ? "PASS" : "FAIL") << endl;
+
+        cout << "Special Character  : "
+             << (hasSymbol ? "PASS" : "FAIL") << endl;
+
+        cout << "\n--------------------------------------------------\n\n";
+
+        cout << "Security Score     : "
+             << score << "/100\n\n";
+
+        cout << "Password Strength  : ";
+
+        if(score < 40)
+            cout << "WEAK\n";
+        else if(score < 70)
+            cout << "MEDIUM\n";
         else
-            hasSymbol = true;
+            cout << "STRONG\n";
+
+        cout << "\n--------------------------------------------------\n\n";
+
+        cout << "Suggestions:\n\n";
+
+        if(score >= 70)
+        {
+            cout << "Excellent password security.\n";
+        }
+        else
+        {
+            if(password.length() < 8)
+                cout << "- Increase password length\n";
+
+            if(!hasUpper)
+                cout << "- Add uppercase letters\n";
+
+            if(!hasLower)
+                cout << "- Add lowercase letters\n";
+
+            if(!hasDigit)
+                cout << "- Add numbers\n";
+
+            if(!hasSymbol)
+                cout << "- Add special characters\n";
+        }
+
+        cout << "\n==================================================\n\n";
+
+        cout << "[1] Check Another Password\n";
+        cout << "[2] Return To Main Menu\n\n";
+
+        cout << "Enter Choice: ";
+        cin >> option;
+
     }
+    while(option == 1);
 
-    if(password.length() >= 8)
-        score += 20;
-
-    if(password.length() >= 12)
-        score += 20;
-
-    if(hasUpper)
-        score += 20;
-
-    if(hasLower)
-        score += 20;
-
-    if(hasDigit)
-        score += 10;
-
-    if(hasSymbol)
-        score += 10;
-
-    cout << "Security Score     : " << score << "/100\n\n";
+    system("cls");
 }
 
 int main()
