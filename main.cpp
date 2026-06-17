@@ -14,6 +14,8 @@ void checkPassword()
     bool hasDigit = false;
     bool hasSymbol = false;
 
+    int score = 0;
+
     cout << "==================================================\n";
     cout << "            PASSWORD STRENGTH CHECKER\n";
     cout << "==================================================\n\n";
@@ -32,6 +34,26 @@ void checkPassword()
         else
             hasSymbol = true;
     }
+
+    if(password.length() >= 8)
+        score += 20;
+
+    if(password.length() >= 12)
+        score += 20;
+
+    if(hasUpper)
+        score += 20;
+
+    if(hasLower)
+        score += 20;
+
+    if(hasDigit)
+        score += 10;
+
+    if(hasSymbol)
+        score += 10;
+
+    cout << "Security Score     : " << score << "/100\n\n";
 }
 
 int main()
