@@ -9,8 +9,29 @@ void checkPassword()
 {
     string password;
 
+    bool hasUpper = false;
+    bool hasLower = false;
+    bool hasDigit = false;
+    bool hasSymbol = false;
+
+    cout << "==================================================\n";
+    cout << "            PASSWORD STRENGTH CHECKER\n";
+    cout << "==================================================\n\n";
+
     cout << "Enter Password: ";
     cin >> password;
+
+    for(char ch : password)
+    {
+        if(isupper(ch))
+            hasUpper = true;
+        else if(islower(ch))
+            hasLower = true;
+        else if(isdigit(ch))
+            hasDigit = true;
+        else
+            hasSymbol = true;
+    }
 }
 
 int main()
