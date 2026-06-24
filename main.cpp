@@ -11,11 +11,22 @@ void returnToMenu()
 
     cout << "\nPress 1 to return to Main Menu: ";
     cin >> choice;
+    if(cin.fail())
+	{
+	    cin.clear();
+	    cin.ignore(1000,'\n');
+	}
 
     while(choice != 1)
     {
         cout << "Invalid input. Press 1 to return: ";
         cin >> choice;
+        
+        if(cin.fail())
+		{
+		    cin.clear();
+		    cin.ignore(1000,'\n');
+		}
     }
 
     system("cls");
@@ -203,7 +214,14 @@ void checkPassword()
         cout << "[2] Return To Main Menu\n\n";
 
         cout << "Enter Choice: ";
-        cin >> option;
+
+		while(!(cin >> option) || (option != 1 && option != 2))
+		{
+		    cin.clear();
+		    cin.ignore(1000,'\n');
+		
+		    cout << "Invalid choice. Enter 1 or 2: ";
+		}
 
     }
     while(option == 1);
@@ -230,7 +248,11 @@ int main()
         cout << "Enter Choice: ";
 
         cin >> choice;
-
+        if(cin.fail())
+		{
+		    cin.clear();
+		    cin.ignore(1000,'\n');
+		}
 
         switch(choice)
         {
