@@ -5,6 +5,22 @@
 
 using namespace std;
 
+void returnToMenu()
+{
+    int choice;
+
+    cout << "\nPress 1 to return to Main Menu: ";
+    cin >> choice;
+
+    while(choice != 1)
+    {
+        cout << "Invalid input. Press 1 to return: ";
+        cin >> choice;
+    }
+
+    system("cls");
+}
+
 void checkPassword()
 {
     int option;
@@ -151,6 +167,7 @@ int main()
         cout << "Enter Choice: ";
 
         cin >> choice;
+
 
         switch(choice)
         {
