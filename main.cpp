@@ -68,6 +68,22 @@ void showAbout()
     returnToMenu();
 }
 
+void exitProgram()
+{
+    system("cls");
+
+    cout << "==================================================\n";
+    cout << "          THANK YOU FOR USING\n\n";
+    cout << "      SMART PASSWORD SECURITY CHECKER\n\n";
+    cout << "==================================================\n\n";
+
+    cout << "Stay Safe Online!\n\n";
+
+    cout << "Program Terminated Successfully.\n\n";
+
+    cout << "==================================================\n";
+}
+
 void checkPassword()
 {
     int option;
