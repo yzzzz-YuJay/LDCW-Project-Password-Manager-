@@ -42,6 +42,32 @@ void showTips()
     returnToMenu();
 }
 
+void showAbout()
+{
+    system("cls");
+
+    cout << "==================================================\n";
+    cout << "                ABOUT PROGRAM\n";
+    cout << "==================================================\n\n";
+
+    cout << "Program Name:\n";
+    cout << "Smart Password Security Checker\n\n";
+
+    cout << "Category:\n";
+    cout << "Cybersecurity - Password Manager\n\n";
+
+    cout << "Purpose:\n";
+    cout << "Evaluate password strength and provide\n";
+    cout << "recommendations for better security.\n\n";
+
+    cout << "Developed For:\n";
+    cout << "LDCW6123 Group Project\n\n";
+
+    cout << "==================================================\n";
+
+    returnToMenu();
+}
+
 void checkPassword()
 {
     int option;
