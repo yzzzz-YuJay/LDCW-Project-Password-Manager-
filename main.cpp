@@ -21,6 +21,27 @@ void returnToMenu()
     system("cls");
 }
 
+void showTips()
+{
+    system("cls");
+
+    cout << "==================================================\n";
+    cout << "            PASSWORD SECURITY TIPS\n";
+    cout << "==================================================\n\n";
+
+    cout << "1. Use at least 12 characters.\n\n";
+    cout << "2. Include uppercase letters.\n\n";
+    cout << "3. Include lowercase letters.\n\n";
+    cout << "4. Include numbers.\n\n";
+    cout << "5. Include special characters.\n\n";
+    cout << "6. Avoid personal information.\n\n";
+    cout << "7. Use different passwords for different accounts.\n\n";
+
+    cout << "==================================================\n";
+
+    returnToMenu();
+}
+
 void checkPassword()
 {
     int option;
