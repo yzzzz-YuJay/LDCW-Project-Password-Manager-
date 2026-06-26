@@ -5,33 +5,36 @@
 
 using namespace std;
 
+// Return to the main menu after viewing a page.
 void returnToMenu()
 {
     int choice;
 
     cout << "\nPress 1 to return to Main Menu: ";
     cin >> choice;
+
     if(cin.fail())
-	{
-	    cin.clear();
-	    cin.ignore(1000,'\n');
-	}
+    {
+        cin.clear();
+        cin.ignore(1000, '\n');
+    }
 
     while(choice != 1)
     {
         cout << "Invalid input. Press 1 to return: ";
         cin >> choice;
-        
+
         if(cin.fail())
-		{
-		    cin.clear();
-		    cin.ignore(1000,'\n');
-		}
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+        }
     }
 
     system("cls");
 }
 
+// Display password security tips for creating stronger passwords.
 void showTips()
 {
     system("cls");
@@ -53,6 +56,7 @@ void showTips()
     returnToMenu();
 }
 
+// Display information about the program.
 void showAbout()
 {
     system("cls");
@@ -79,6 +83,7 @@ void showAbout()
     returnToMenu();
 }
 
+// Display a farewell message before exiting the program.
 void exitProgram()
 {
     system("cls");
@@ -95,6 +100,7 @@ void exitProgram()
     cout << "==================================================\n";
 }
 
+// Analyze the password and evaluate its strength.
 void checkPassword()
 {
     int option;
@@ -103,6 +109,7 @@ void checkPassword()
     {
         system("cls");
 
+        // Variables used for password analysis.
         string password;
 
         bool hasUpper = false;
@@ -119,6 +126,7 @@ void checkPassword()
         cout << "Enter Password: ";
         cin >> password;
 
+        // Check whether the password contains different character types.
         for(char ch : password)
         {
             if(isupper(ch))
@@ -131,6 +139,7 @@ void checkPassword()
                 hasSymbol = true;
         }
 
+        // Calculate the password security score.
         if(password.length() >= 8)
             score += 20;
 
@@ -173,6 +182,7 @@ void checkPassword()
         cout << "Security Score     : "
              << score << "/100\n\n";
 
+        // Display the overall password strength.
         cout << "Password Strength  : ";
 
         if(score < 40)
@@ -184,6 +194,7 @@ void checkPassword()
 
         cout << "\n--------------------------------------------------\n\n";
 
+        // Provide suggestions to improve password security.
         cout << "Suggestions:\n\n";
 
         if(score >= 70)
@@ -215,13 +226,14 @@ void checkPassword()
 
         cout << "Enter Choice: ";
 
-		while(!(cin >> option) || (option != 1 && option != 2))
-		{
-		    cin.clear();
-		    cin.ignore(1000,'\n');
-		
-		    cout << "Invalid choice. Enter 1 or 2: ";
-		}
+        // Validate user input to prevent invalid menu selection.
+        while(!(cin >> option) || (option != 1 && option != 2))
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+
+            cout << "Invalid choice. Enter 1 or 2: ";
+        }
 
     }
     while(option == 1);
@@ -229,6 +241,7 @@ void checkPassword()
     system("cls");
 }
 
+// Main function that controls the program flow.
 int main()
 {
     int choice;
@@ -248,12 +261,14 @@ int main()
         cout << "Enter Choice: ";
 
         cin >> choice;
-        if(cin.fail())
-		{
-		    cin.clear();
-		    cin.ignore(1000,'\n');
-		}
 
+        if(cin.fail())
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+        }
+
+        // Execute the selected menu option.
         switch(choice)
         {
             case 1:
